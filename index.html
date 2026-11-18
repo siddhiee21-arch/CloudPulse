@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudPulse | Infrastructure Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">◈</div>
+        <span>Cloud<span class="brand-accent">Pulse</span></span>
+      </div>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation">
+        <a href="#" class="nav-link active" data-page="Overview"><span>◫</span> Overview</a>
+        <a href="#metrics" class="nav-link" data-page="Infrastructure"><span>▦</span> Infrastructure</a>
+        <a href="#servers" class="nav-link" data-page="Servers"><span>▣</span> Servers</a>
+        <a href="#activity" class="nav-link" data-page="Analytics"><span>⌁</span> Analytics</a>
+        <a href="#alerts" class="nav-link" data-page="Alerts"><span>♧</span> Alerts <i class="nav-count">2</i></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="workspace-label">SYSTEM</div>
+        <a href="#" class="nav-link" data-page="Settings"><span>⚙</span> Settings</a>
+        <div class="profile">
+          <div class="avatar">CP</div>
+          <div><strong>CloudPulse</strong><small>Admin workspace</small></div>
+          <span class="profile-dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="breadcrumb">Workspace <span>/</span> Overview</div>
+          <h1 id="page-title">Infrastructure Overview</h1>
+        </div>
+        <div class="top-actions">
+          <span class="demo-tag"><span></span> DEMO ENVIRONMENT</span>
+          <button class="icon-button" aria-label="Notifications">♧<i></i></button>
+          <div class="top-avatar">CP</div>
+        </div>
+      </header>
+
+      <section class="welcome-row">
+        <div>
+          <h2>Your infrastructure, <span>in focus.</span></h2>
+          <p>Monitor performance, resource usage and system health in one place.</p>
+        </div>
+        <div class="updated-label"><span class="pulse-dot"></span> Updating automatically</div>
+      </section>
+
+      <section class="metrics-grid" id="metrics">
+        <article class="metric-card purple-card">
+          <div class="metric-top"><span>CPU UTILIZATION</span><span class="metric-symbol">⌘</span></div>
+          <div class="metric-value"><strong id="cpu">45</strong><small>%</small></div>
+          <div class="metric-note"><span class="trend-up">↗ 2.4%</span> <span>vs last hour</span></div>
+          <div class="progress-track"><div class="progress-fill purple-fill" id="cpu-bar"></div></div>
+          <div class="card-glow"></div>
+        </article>
+
+        <article class="metric-card teal-card">
+          <div class="metric-top"><span>MEMORY USAGE</span><span class="metric-symbol">▤</span></div>
+          <div class="metric-value"><strong id="memory">62</strong><small>%</small></div>
+          <div class="metric-note"><span class="trend-teal">↘ 1.8%</span> <span>vs last hour</span></div>
+          <div class="progress-track"><div class="progress-fill teal-fill" id="memory-bar"></div></div>
+          <div class="card-glow"></div>
+        </article>
+
+       
+<article class="metric-card pink-card">
+  <div class="metric-top">
+    <span>DISK USAGE</span>
+    <span class="metric-symbol">▣</span>
+  </div>
+
+  <div class="metric-value">
+    <strong id="disk">0</strong><small>%</small>
+  </div>
+
+  <div class="metric-note">
+    <span class="trend-pink">● Storage</span>
+    <span>Disk utilization</span>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="disk-bar"></div>
+  </div>
+
+  <div class="card-glow"></div>
+</article>
+
+
+<article class="metric-card amber-card">
+  <div class="metric-top">
+    <span>SYSTEM UPTIME</span>
+    <span class="metric-symbol">◷</span>
+  </div>
+  <div class="metric-value">
+    <strong id="uptime">Loading...</strong>
+  </div>
+  <div class="metric-note">
+    <span class="trend-amber">● Live</span>
+    <span>Current system uptime</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill amber-fill" style="width:100%"></div>
+  </div>
+  <div class="card-glow"></div>
+</article>
+      </section>
+
+
+<!-- SERVER INFORMATION -->
+<section class="server-info-section">
+
+    <div class="section-heading">
+        <div>
+            <h2>Server Information</h2>
+            <p>Live details about your system</p>
+        </div>
+        <span class="server-live-status">
+            <span class="live-dot"></span>
+            Connected
+        </span>
+    </div>
+
+    <div class="server-info-grid">
+
+        <div class="info-card">
+            <span>HOSTNAME</span>
+            <strong id="hostname">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>OPERATING SYSTEM</span>
+            <strong id="os">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>PROCESSOR</span>
+            <strong id="processor">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>CPU CORES</span>
+            <strong id="cores">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>TOTAL MEMORY</span>
+            <strong id="total-ram">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>DISK CAPACITY</span>
+            <strong id="total-disk">Loading...</strong>
+        </div>
+
+        <div class="info-card">
+            <span>SYSTEM UPTIME</span>
+            <strong id="server-uptime">Loading...</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+      <section class="content-grid">
+        <article class="panel chart-panel" id="activity">
+          <div class="panel-heading">
+            <div><h3>Performance analytics</h3><p>Resource utilization over time</p></div>
+            <div class="chart-legend"><span><i class="legend-purple"></i> CPU</span><span><i class="legend-teal"></i> Memory</span></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-y-labels"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+            <div class="chart-plot">
+              <div class="chart-grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+              
+<svg viewBox="0 0 700 230" preserveAspectRatio="none" class="chart-svg">
+
+  <defs>
+    <linearGradient id="purpleArea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#9b6cff" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#9b6cff" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="tealArea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#35ddc1" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#35ddc1" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="pinkArea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ff6bba" stop-opacity=".20"/>
+      <stop offset="100%" stop-color="#ff6bba" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- CPU area -->
+  <path class="area-purple"
+    d="M0 135 C45 110 55 145 100 112 S165 90 200 118 S260 70 300 90 S360 125 400 82 S465 65 500 88 S560 42 600 62 S660 50 700 35 L700 230 L0 230 Z"/>
+
+  <!-- Memory area -->
+  <path class="area-teal"
+    d="M0 165 C50 150 70 170 100 150 S165 145 200 155 S260 130 300 145 S360 155 400 132 S465 120 500 145 S560 110 600 125 S660 115 700 100 L700 230 L0 230 Z"/>
+
+  <!-- Disk area -->
+  <path class="area-pink"
+    d="M0 190 L700 190 L700 230 L0 230 Z"/>
+
+  <!-- CPU line -->
+  <path class="line-purple"
+    d="M0 135 C45 110 55 145 100 112 S165 90 200 118 S260 70 300 90 S360 125 400 82 S465 65 500 88 S560 42 600 62 S660 50 700 35"/>
+
+  <!-- Memory line -->
+  <path class="line-teal"
+    d="M0 165 C50 150 70 170 100 150 S165 145 200 155 S260 130 300 145 S360 155 400 132 S465 120 500 145 S560 110 600 125 S660 115 700 100"/>
+
+  <!-- Disk line -->
+  <path class="line-pink" d="M0 190 L700 190"/>
+
+</svg>
+
+             <div class="chart-x-labels">
+    <span>Oldest</span>
+    <span>Recent readings</span>
+    <span>Now</span>
+</div>
+            
+          </div>
+          <div class="chart-footer"><span>◉Live local system metrics · Recent readings</span><span>Live monitoring</span></div>
+        </article>
+
+      
+
+<article class="panel health-panel">
+  <div class="panel-heading">
+    <div>
+      <h3>System Health</h3>
+      <p>Overall infrastructure status</p>
+    </div>
+    <span class="health-menu">•••</span>
+  </div>
+
+  <div class="health-orbit">
+    <div class="orbit-ring"></div>
+    <div class="orbit-inner">
+      <strong id="health-score">--</strong>
+      <span>HEALTH SCORE</span>
+    </div>
+  </div>
+
+  <div class="health-status">
+    <span class="status-dot" id="health-dot"></span>
+    <span id="health-status-text">Checking system...</span>
+  </div>
+
+  <div class="health-details">
+    <div>
+      <span>CPU health</span>
+      <strong id="cpu-health">--</strong>
+    </div>
+    <div>
+      <span>Memory health</span>
+      <strong id="memory-health">--</strong>
+    </div>
+    <div>
+      <span>Disk health</span>
+      <strong id="disk-health">--</strong>
+    </div>
+  </div>
+</article>
+
+
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel servers-panel" id="servers">
+          <div class="panel-heading"><div><h3>Server instances</h3><p>Illustrative cloud infrastructure · Demo data</p></div><a href="#servers" class="view-all">View all ↗</a></div>
+          <div class="server-table">
+            <div class="server-row table-head"><span>INSTANCE</span><span>REGION</span><span>STATUS</span><span>CPU</span></div>
+            <div class="server-row"><span><i class="instance-icon purple-instance">▣</i><b>web-server-01</b></span><span>ap-south-1</span><span><i class="online-dot"></i> Online</span><span>38%</span></div>
+            <div class="server-row"><span><i class="instance-icon teal-instance">▣</i><b>api-server-02</b></span><span>ap-south-1</span><span><i class="online-dot"></i> Online</span><span>54%</span></div>
+            <div class="server-row"><span><i class="instance-icon pink-instance">▣</i><b>database-01</b></span><span>ap-south-1</span><span><i class="online-dot"></i> Online</span><span>67%</span></div>
+            <div class="server-row"><span><i class="instance-icon amber-instance">▣</i><b>worker-node-03</b></span><span>ap-south-1</span><span><i class="online-dot"></i> Online</span><span>29%</span></div>
+          </div>
+        </article>
+
+      
+<article class="panel alerts-panel" id="alerts">
+  <div class="panel-heading">
+    <div>
+      <h3>Recent Alerts</h3>
+      <p>Live system health events</p>
+    </div>
+    <span class="alert-count" id="alert-count">0 alerts</span>
+  </div>
+
+  <div id="alerts-container">
+    <div class="alert-item">
+      <div class="alert-icon info">i</div>
+      <div>
+        <strong>Monitoring started</strong>
+        <p>Waiting for system metrics...</p>
+        <small>Just now</small>
+      </div>
+    </div>
+  </div>
+</article>
+</section>
+      <footer class="footer"><span>© 2026 CloudPulse · Infrastructure monitoring dashboard</span><span><i class="footer-dot"></i> <span><i class="footer-dot"></i> Local monitoring · Demo cloud instances</span></span></footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
